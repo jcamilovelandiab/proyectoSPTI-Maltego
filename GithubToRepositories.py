@@ -17,7 +17,7 @@ repoName = sys.argv[1]
 
 def get_captcha(driver, element, path):
 
-chrome_options = Options()
+    chrome_options = Options()
 driver = None
 try:
     driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver.exe"), chrome_options=chrome_options)

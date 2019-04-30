@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import urllib
 from MaltegoTransform import *
+import time
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -14,21 +15,6 @@ m = MaltegoTransform()
 #repoName = sys.argv[1]
 repoName = "hola"
 
-def get_captcha(driver, element, path):
-    # now that we have the preliminary stuff out of the way time to get that image :D
-    location = element.location
-    size = element.size
-    # saves screenshot of entire page
-    driver.save_screenshot(path)
-    # uses PIL library to open image in memory
-    image = Image.open(path)
-    left = location['x']
-    top = location['y']
-    right = location['x'] + size['width']
-    bottom = location['y'] + size['height']
-    image = image.crop((left, top, right, bottom))  # defines crop points
-    image.save(path, 'png')  # saves new cropped image
-
 chrome_options = Options()
 driver = None
 try:
@@ -41,8 +27,12 @@ except Exception as e:
 '''
 LOGIN, CUENTA FALSA EN OTX
 '''
-formaLogin = driver.find_element_by_xpath("//ul[@class='auth-nav']/li[2]/button")
-formaLogin.click()
+try:
+    formaLogin = driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-home/section[1]/div/div/div[2]/div/ul/li[2]/button")
+    formaLogin.click()
+except Exception as e:
+    formaLogin = driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-home/section[1]/div/div/div[2]/div/ul/li[2]/button")
+    formaLogin.click()
 usuario = "osintmaltego"
 contraseña = "osint123"
 username = driver.find_element_by_id("id_login")
@@ -56,9 +46,26 @@ botonLogin.click()
 BUSQUEDA DEL PAIS
 '''
 
-lupaBusqueda = driver.find_element_by_id("headerSearchInput")
-lupaBusqueda.send_keys("country: Colombia")
-botonBusqueda = driver.find_element_by_id("otxSearchSubmitButton")
-botonBusqueda.click()
+driver.get("https://otx.alienvault.com/browse/pulses?q=country:%20USA")
 
+'''
+CANTIDAD DE PULSOS
+'''
+time.sleep(5)
+numeroDePulsos = int(driver.find_element_by_xpath("/html/body/app-root/app-header/nav/ul/li[1]/a/span").text)
+
+
+'''
+CARGA DE LA PAGINA COMPLETA
+'''
+
+html = driver.find_element_by_tag_name('html')
+for i in range((numeroDePulsos//10) + 1):
+    html.send_keys(Keys.END)
+    time.sleep(3)
+
+'''
+OBTENCION DE LOS PULSOS
+'''
+pulsos = driver.find_elements_by_xpath("/html/body/app-root//div[1]/div[1]/app-browse/div[1]/div/div[2]/div/div/*/div/*")
 #driver.quit()
