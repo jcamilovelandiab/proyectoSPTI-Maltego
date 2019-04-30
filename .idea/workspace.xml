@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab751db0-f382-429b-b6f1-0db5a1edf7ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/CountryToAtackInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/CountryToAtackInfo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GithubToRepositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/GithubToRepositories.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CountryToAtackInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="69" column="121" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="121" />
+            <state relative-caret-position="308">
+              <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -76,6 +75,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -158,12 +158,12 @@
       <updated>1556581250005</updated>
       <workItem from="1556581251863" duration="961000" />
       <workItem from="1556582744252" duration="77000" />
-      <workItem from="1556583687315" duration="15145000" />
+      <workItem from="1556583687315" duration="21710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16183000" />
+    <option name="totallyTimeSpent" value="22748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -184,7 +184,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32919255" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -198,7 +198,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/proyectoSPTI_Maltego$CountryToAtackInfo.coverage" NAME="CountryToAtackInfo Coverage Results" MODIFIED="1556600867563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/proyectoSPTI_Maltego$CountryToAtackInfo.coverage" NAME="CountryToAtackInfo Coverage Results" MODIFIED="1556607967890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/proyectoSPTI_Maltego$GithubToRepositories.coverage" NAME="GithubToRepositories Coverage Results" MODIFIED="1556583815547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
@@ -214,8 +214,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CountryToAtackInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="69" column="121" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="121" />
+        <state relative-caret-position="308">
+          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>

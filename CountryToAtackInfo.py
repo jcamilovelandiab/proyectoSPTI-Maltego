@@ -45,8 +45,8 @@ botonLogin.click()
 '''
 BUSQUEDA DEL PAIS
 '''
-
-driver.get("https://otx.alienvault.com/browse/pulses?q=country:%20USA")
+rutaPais = "https://otx.alienvault.com/browse/pulses?q=country:%20" + "Colombia"
+driver.get(rutaPais)
 
 '''
 CANTIDAD DE PULSOS
@@ -68,4 +68,11 @@ for i in range((numeroDePulsos//10) + 1):
 OBTENCION DE LOS PULSOS
 '''
 pulsos = driver.find_elements_by_xpath("/html/body/app-root//div[1]/div[1]/app-browse/div[1]/div/div[2]/div/div/*/div/*")
+urlsPulsos = []
+for pulso in pulsos:
+    urlsPulsos.append("https://otx.alienvault.com/" + pulso.get_attribute("id").replace("-", "/"))
+for pulso in urlsPulsos:
+    driver.get(pulso)
+    time.sleep(5)
+    print(driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-pulse-detail/div[1]/div/div/div/header/div[1]/h1").text)
 #driver.quit()
