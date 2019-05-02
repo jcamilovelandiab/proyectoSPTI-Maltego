@@ -59,18 +59,79 @@ for pulso in urlsPulsos:
     driver.get(pulso)
     time.sleep(5)
     print(driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-pulse-detail/div[1]/div/div/div/header/div[1]/h1").text)
-    time.sleep(5)
-    driver.find_element_by_name("DataTables_Table_0_length").click()
-    time.sleep(1)
-    driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-pulse-detail/div[1]/div/div/div/div/app-pulse-indicators/div/div/div[2]/div/div[1]/div[1]/div/label/select/option[2]").click()
-    time.sleep(3)
-    barraBusqueda = driver.find_element_by_xpath("/html/body/app-root/div[1]/div[1]/app-pulse-detail/div[1]/div/div/div/div/app-pulse-indicators/div/div/div[2]/div/div[1]/div[2]/div/label/input")
-    barraBusqueda.send_keys("URL")
-    barraBusqueda.send_keys(Keys.END)
-    indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']")
-    indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']")
-    for fila in indicadores1:
-        info = fila.find_element_by_xpath("//a").get_property("href")
-        print(info)
-    #for fila in indicadores2:
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    try:
+        barraBusqueda = driver.find_element_by_xpath("// *[ @ id = 'DataTables_Table_0_filter'] / label / input")
+
+        """BUSCAR URLS"""
+        barraBusqueda.send_keys("URL")
+        infoPulso["URL"] = []
+        time.sleep(5)
+        barraBusqueda.send_keys(Keys.END)
+        try:
+            indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']/td[2]/a/span/span")
+            indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']/td[2]/a/span/span")
+        except Exception as e:
+            indicadores1, indicadores2 = [],[]
+        for fila in indicadores1 + indicadores2:
+            infoPulso["URL"].append(fila.text)
+            print("URL",fila.text)
+
+        """BUSCAR IPV4"""
+        barraBusqueda.clear()
+        barraBusqueda.send_keys("IPV4")
+        infoPulso["IPV4"] = []
+        time.sleep(5)
+        try:
+            indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']/td[2]/a/span/span")
+            indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']/td[2]/a/span/span")
+        except Exception as e:
+            indicadores1, indicadores2 = [], []
+        for fila in indicadores1 + indicadores2:
+            infoPulso["IPV4"].append(fila.text)
+            print("IPV4", fila.text)
+
+        """BUSCAR HOSTAME"""
+        barraBusqueda.clear()
+        barraBusqueda.send_keys("hostname")
+        infoPulso["hostname"] = []
+        time.sleep(5)
+        try:
+            indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']/td[2]/a/span/span")
+            indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']/td[2]/a/span/span")
+        except Exception as e:
+            indicadores1, indicadores2 = [], []
+        for fila in indicadores1 + indicadores2:
+            infoPulso["hostname"].append(fila.text)
+            print("hostname", fila.text)
+
+        """BUSCAR DOMAIN"""
+        barraBusqueda.clear()
+        barraBusqueda.send_keys("domain")
+        infoPulso["domain"] = []
+        time.sleep(5)
+        try:
+            indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']/td[2]/a/span/span")
+            indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']/td[2]/a/span/span")
+        except Exception as e:
+            indicadores1, indicadores2 = [], []
+        for fila in indicadores1 + indicadores2:
+            infoPulso["domain"].append(fila.text)
+            print("domain", fila.text)
+
+        """BUSCAR EMAIL"""
+        barraBusqueda.clear()
+        barraBusqueda.send_keys("email")
+        infoPulso["email"] = []
+        time.sleep(5)
+        try:
+            indicadores1 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer even']/td[2]/a/span/span")
+            indicadores2 = driver.find_elements_by_xpath("//tbody/*[@class='show-row no-footer odd']/td[2]/a/span/span")
+        except Exception as e:
+            indicadores1, indicadores2 = [], []
+        for fila in indicadores1 + indicadores2:
+            infoPulso["email"].append(fila.text)
+            print("email", fila.text)
+    except Exception as e:
+        print("no se pudo extraer")
 #driver.quit()
